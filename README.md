@@ -49,3 +49,67 @@ $ git push --set-upstream origin master
 ```
 Доступна: $ git log
 ```
+## Part 2
+1.В локальной копии репозитория создайте локальную ветку patch1.
+```
+$ git checkout -b pathc1
+```
+2.Внесите изменения в ветке patch1 по исправлению кода и избавления от using namespace std;.
+```
+$ nano hello_world.cpp // открываем редактор и меняем файл
+>#include <iostream>
+>#include <string>
+>int main(int argc, char** argv)
+>{
+>std::string a;
+>std::cout << "Please insert your name: "
+>std::cin >> a;
+>std::cout << std::endl << "Hello world from: " << a;
+>}
+$ git add . // добавляем изменённый файл в индекс репозитория patch1 
+```
+3.commit, push локальную ветку в удалённый репозиторий.
+```
+$ git commit -m "Remove namespace std" //комиттим
+$ git push origin patch1 //добавляем изменения на удалённый репозиторий
+```
+4.Проверьте, что ветка patch1 доступна в удалёный репозитории.(Доступна)
+5.Создайте pull-request patch1 -> master.
+```
+$ git pull origin patch1
+```
+6.В локальной копии в ветке patch1 добавьте в исходный код комментарии.
+```
+$ nano hello_world.cpp
+>#include <iostream>
+>#include <string>
+>//commentarii 1
+>int main(int argc, char** argv)
+>{ // commentariii2
+>std::string a;
+>std::cout << "Please insert your name: "
+>std::cin >> a;
+>std::cout << std::endl << "Hello world from: " << a;
+>}
+$ git add .
+```
+7.commit, push.
+```
+$ git commit -m "Give comments"
+$ git push origin patch1
+```
+8.Проверьте, что новые изменения есть в созданном на шаге 5 pull-request (Есть)
+9.В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+10.Локально выполните pull.
+```
+$ git checkout master
+$ git pull
+```
+11.С помощью команды git log просмотрите историю в локальной версии ветки master.
+```
+$ git log
+```
+12.Удалите локальную ветку patch1.
+```
+$ git branch -d patch1
+```
