@@ -1,6 +1,10 @@
 #include <iostream>
+#include <string>
 using namespace std;
 int main(int argc, char** argv)
 {
-cout << "Hello world";
+string a;
+cout << "Please insert your name: "
+cin >> a;
+cout << endl << "Hello world from " << a;
 }
