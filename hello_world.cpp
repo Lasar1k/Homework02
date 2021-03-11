@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-//commentarii 1
+//commentari 1
 int main(int argc, char** argv)
 { // commentariii2
 std::string a;
