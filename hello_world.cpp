@@ -8,3 +8,4 @@ main(int argc, char** argv)
   std::cout << "Please insert your name: " std::cin >> a;
   std::cout << std::endl << "Hello world from: " << a;
 }
+//another comment
